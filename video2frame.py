@@ -7,8 +7,8 @@ TMP_DIR = "tmp"
 
 def ShowHelp():
     print(f""">> By PRIME
-Kullanım: python3 {sys.argv[0]} --video video.mp4 : Videoyu karelerine ayırır
-          python3 {sys.argv[0]} --clsoutdir : Çıktı klasörünü temizler.""")
+Kullanım: python3 {sys.argv[0]} --video video.mp4 : Splits the video into frames.
+          python3 {sys.argv[0]} --clsoutdir : Clears the output folder.""")
     sys.exit(0)
 
 
@@ -23,10 +23,10 @@ if sys.argv[1] == "--help":
 
 
 if sys.argv[1] == "--clsoutdir":
-    print(f"[+] {OUTPUT_DIR} içeriği temizleniyor...")
+    print(f"[+] {OUTPUT_DIR} Clearing content...")
     for element in os.listdir(OUTPUT_DIR):
         os.remove(f"{OUTPUT_DIR}{os.sep}{element}")
-    print("[+] Bitti... ")
+    print("[+] Finished... ")
     sys.exit(0)
 
 
@@ -42,7 +42,7 @@ if not os.path.exists(TMP_DIR) or not os.path.isdir(TMP_DIR):
 if not os.path.exists(OUTPUT_DIR) or not os.path.isdir(OUTPUT_DIR):
     os.mkdir(OUTPUT_DIR)
 else:
-    print(f"[+] {OUTPUT_DIR} içeriği temizleniyor...")
+    print(f"[+] {OUTPUT_DIR} Clearing content...")
     for element in os.listdir(OUTPUT_DIR):
         os.remove(f"{OUTPUT_DIR}{os.sep}{element}")
 
@@ -54,10 +54,10 @@ FrameNumber = 0
 
 
 
-print("[+] Videodan kareler ayıklanıyor...")
+print("[+] Extracting frames from the video...")
 while(True):
     is_succes, now_frame = TargetVideo.read()
-    sys.stdout.write(f"\r> Kare: {FrameNumber}")
+    sys.stdout.write(f"\r> Frame: {FrameNumber}")
     sys.stdout.flush()
     if FrameNumber % 2 == 0:
         FrameNumber = FrameNumber + 1
@@ -68,5 +68,5 @@ while(True):
         break
 
     FrameNumber = FrameNumber + 1
-print("\n[+] Bitti...")
+print("\n[+] Finished...")
 TargetVideo.release()
