@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/env bash
 OS_INFO_FILE="/etc/os-release"
 
 printf "[+] Sistem bilgisi ${OS_INFO_FILE} dosyasından alınıyor...\n"

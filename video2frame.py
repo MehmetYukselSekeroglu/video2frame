@@ -9,7 +9,7 @@ def ShowHelp():
     print(f""">> By PRIME
 Kullanım: python3 {sys.argv[0]} --video video.mp4 : Videoyu karelerine ayırır
           python3 {sys.argv[0]} --clsoutdir : Çıktı klasörünü temizler.""")
-    exit(0)
+    sys.exit(0)
 
 
 if len(sys.argv) < 2:
@@ -27,7 +27,7 @@ if sys.argv[1] == "--clsoutdir":
     for element in os.listdir(OUTPUT_DIR):
         os.remove(f"{OUTPUT_DIR}{os.sep}{element}")
     print("[+] Bitti... ")
-    exit(0)
+    sys.exit(0)
 
 
 if sys.argv[1] ==  "--video" and os.path.exists(sys.argv[2]):
@@ -68,5 +68,5 @@ while(True):
         break
 
     FrameNumber = FrameNumber + 1
-print("[+] Bitti...")
+print("\n[+] Bitti...")
 TargetVideo.release()
