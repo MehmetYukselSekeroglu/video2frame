@@ -7,7 +7,7 @@ TMP_DIR = "tmp"
 
 def ShowHelp():
     print(f""">> By PRIME
-Kullanım: python3 {sys.argv[0]} --video video.mp4 : Splits the video into frames.
+Usage: python3 {sys.argv[0]} --video video.mp4 : Splits the video into frames.
           python3 {sys.argv[0]} --clsoutdir : Clears the output folder.""")
     sys.exit(0)
 
@@ -59,9 +59,6 @@ while(True):
     is_succes, now_frame = TargetVideo.read()
     sys.stdout.write(f"\r> Frame: {FrameNumber}")
     sys.stdout.flush()
-    if FrameNumber % 2 == 0:
-        FrameNumber = FrameNumber + 1
-        continue
     if is_succes:
         cv2.imwrite(f"tmp{os.sep}cv2output{os.sep}frame_{FrameNumber}.jpg", now_frame)
     else:
